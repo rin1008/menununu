@@ -1,0 +1,485 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple SD Gothic Neo Bold";
+  src: url("https://db.onlinewebfonts.com/t/67680f2eb947c5cbd58b40961b4a61e9.eot");
+  src: url("https://db.onlinewebfonts.com/t/67680f2eb947c5cbd58b40961b4a61e9.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/67680f2eb947c5cbd58b40961b4a61e9.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/67680f2eb947c5cbd58b40961b4a61e9.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/67680f2eb947c5cbd58b40961b4a61e9.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/67680f2eb947c5cbd58b40961b4a61e9.svg#Apple SD Gothic Neo Bold")format("svg");
+}
+/* 
+Support intellisense
+px -> rem (Shortcut key: Alt + z)
+rem -> px (Shortcut key: Alt + z)
+px -> vw (Shortcut key: Alt + v, Alt + w)
+vw -> px (Shortcut key: Alt + v, Alt + w)
+px -> rpx (微信小程序, 快捷键：Alt + r)
+rpx -> px (微信小程序, 快捷键：Alt + r) */
+
+
+/* reset */
+* {margin: 0; padding: 0;}
+li {list-style-type: none;}
+a {text-decoration: none; color: inherit;}
+
+body {
+  background: #333333;
+  width: 100%; height: 3000px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+header {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  width: 100%; height: 44px;
+  position: fixed;
+  z-index: 100;
+}
+header .hd_wrap {
+  width: 100%; height: 44px;
+  position: relative;
+}
+header .hd_inner {
+  width: 1300px; height: 44px;
+  margin: 0 auto;
+  /* outline: 1px dotted #fff; */
+}
+
+
+
+/* 로고부분 */
+header .hd_inner .logo {
+  float: left;
+}
+header .hd_inner .logo a {
+  font-family: "Apple SD Gothic Neo Bold";
+  width: 102px; height: 44px;
+  display: flex;
+  align-items: center;
+  /* outline: 1px dotted #fff; */
+  padding-left: 18px;
+  font-size: 14px;
+}
+header .hd_inner .logo a img {
+  width: auto;
+  height: 28px;
+  margin-right: 5px; /* 원하는 간격으로 조절하세요 */
+}
+
+
+
+/* 메뉴부분 */
+header .hd_inner .menu {
+  float: left;
+  margin-left: 20px;
+}
+header .hd_inner .menu ul {
+  width: 500px; height: 44px;
+  line-height: 44px;
+  display: flex;
+  justify-content: space-around;
+  /* outline: 1px dotted #fff; */
+}
+header .hd_inner .menu ul li {
+  width: 100px; height: 44px;
+  /* outline: 1px dotted #fff; */
+  text-align: center;
+  /* font-weight: 400; */
+}
+header .hd_inner .menu ul li:hover {
+  color: #fff; /* 원하는 네온 색상으로 변경하세요 */
+  text-shadow: 0 0 10px #fff; /* 텍스트 주위에 네온 효과를 줄 색상과 크기 설정 */
+}
+
+
+
+/* 아이콘부분 */
+header .hd_inner .icon {
+  width: 120px; height: 44px;
+  float: right;
+  /* outline: 1px dotted #fff; */
+}
+header .hd_inner .icon .search {
+  float: left;
+  width: 60px; height: 44px;
+  text-align: center;
+  line-height: 44px;
+  /* outline: 1px dotted red; */
+}
+header .hd_inner .icon .shoppingbag {
+  float: left;
+  width: 60px; height: 44px;
+  text-align: center;
+  line-height: 44px;
+  /* outline: 1px dotted red; */
+}
+header .hd_inner .icon .material-symbols-outlined {
+  font-size: 24px; /* 아이콘의 크기 설정 */
+  vertical-align: middle; /* 수직 가운데 정렬 */
+}
+/* 아이콘에 호버 시 네온 효과 */
+header .hd_inner .icon .search:hover,
+header .hd_inner .icon .shoppingbag:hover,
+header .hd_inner .icon .material-symbols-outlined:hover {
+  color: #fff; /* 원하는 네온 색상으로 변경하세요 */
+  text-shadow: 0 0 10px #fff; /* 텍스트 주위에 네온 효과를 줄 색상과 크기 설정 */
+}
+
+
+
+
+/* 아래쪽 메뉴 */
+.menu_inner {
+  position: fixed; /* 수정된 부분: fixed로 변경 */
+  top: 44px; /* 헤더의 바로 아래에 배치 */
+  left: 0;
+  width: 100%;
+  /* outline: 1px dotted #fff; */
+}
+.menu_inner .menu__store {
+  width: 100%;
+  height: 340px;
+  /* background: rgba(255, 255, 255, 0.6); */
+  background: #f5f5f7;
+  display: none;
+  /* outline: 1px dotted red; */
+}
+.menu_inner .menu__product {
+  width: 100%;
+  /* 제품부분만 항목이 많아서 420px */
+  height: 420px;
+  background: #f5f5f7;
+  display: none;
+  /* outline: 1px dotted red; */
+}
+.menu_inner .menu__accessory {
+  width: 100%;
+  height: 340px;
+  background: #f5f5f7;
+  display: none;
+  /* outline: 1px dotted red; */
+}
+.menu_inner .menu__subscribe {
+  width: 100%;
+  height: 340px;
+  background: #f5f5f7;
+  display: none;
+  outline: 1px dotted red;
+}
+.menu_inner .menu__support {
+  width: 100%;
+  height: 340px;
+  background: #f5f5f7; 
+  display: none;
+  /* outline: 1px dotted red; */
+}
+
+
+/* 제품 내부 이너 메뉴 */
+.menu_inner .super-category {
+  display: flex; /* Flexbox를 사용하여 자식 요소들을 가로로 정렬합니다. */
+  justify-content: flex-start; /* 좌측 정렬을 지정합니다. */
+  align-items: center; /* 수직 정렬을 가운데로 설정합니다. */
+  /* outline: 1px dotted red; */
+  width: 1300px;
+  margin: 0 auto;
+}
+.menu_inner .super-category div {
+  width: 150px; height: 40px;
+  /* text-align: center; */
+  line-height: 50px;
+  font-weight: 600;
+  color: #868686;
+  /* outline: 1px dotted red; */
+}
+.menu_inner .super-category div:hover {
+  text-decoration: underline 3px;
+  color: #000;
+}
+
+/* 제품 제외한 나머지 내부 ul 제목들 */
+.store__inner__menu {
+  display: flex; /* Flexbox를 사용하여 자식 요소들을 가로로 정렬합니다. */
+  justify-content: flex-start; /* 좌측 정렬을 지정합니다. */
+  align-items: center; /* 수직 정렬을 가운데로 설정합니다. */
+  /* outline: 1px dotted red; */
+  width: 1300px;
+  margin: 0 auto;
+}
+.store__inner__menu p {
+  width: 300px; height: 34px;
+  /* text-align: center;
+  line-height: 40px; */
+  line-height: 50px;
+  color: #868686;
+  font-size: 12px;
+  font-weight: 600;
+  /* outline: 1px dotted red; */
+}
+
+/* 제품의 내부 ul제목들 */
+.product__inner__menu {
+  display: flex; /* Flexbox를 사용하여 자식 요소들을 가로로 정렬합니다. */
+  justify-content: flex-start; /* 좌측 정렬을 지정합니다. */
+  align-items: center; /* 수직 정렬을 가운데로 설정합니다. */
+  /* outline: 1px dotted red; */
+}
+.product__inner__menu p {
+  width: 300px; height: 34px;
+  /* text-align: center;
+  line-height: 40px; */
+  line-height: 50px;
+  color: #868686;
+  font-size: 12px;
+  font-weight: 600;
+  /* outline: 1px dotted red; */
+}
+
+
+
+/* 메뉴안쪽 이미지 넣을 공간 */
+.menu__store .store-content, .product-content, .accessory-content, .subscribe-content, .support-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+
+
+/* 제품 제외한 메뉴 안쪽 카데고리들 전부  */
+.categories {
+  width: 1300px; height: 300px;
+  margin: 0 auto;
+  /* outline: 1px dotted red; */
+  font-weight: 600;
+}
+.categories ul li {
+  margin-top: 5px;
+}
+.categories ul li:hover {
+  text-shadow: 0 1px 2px #adadad;
+}
+
+
+/* 메뉴 제품 안쪽 카테고리 중간에 놓는거*/
+.product_inner_mac, .product_inner_ipad, 
+.product_inner_iphone, .product_inner_watch, 
+.product_inner_airpods, .product_inner_tv {
+  width: 1300px; height: 380px;
+  margin: 0 auto;
+  /* outline: 1px dotted red; */
+  font-weight: 600;
+  display: none;
+}
+/* 맥 */
+.product_inner_mac .mac_categories ul li {
+  margin-top: 5px;
+}
+.product_inner_ipad .ipad_categories ul li {
+  margin-top: 5px;
+}
+.product_inner_iphone .iphone_categories ul li {
+  margin-top: 5px;
+}
+.product_inner_watch .watch_categories ul li {
+  margin-top: 5px;
+}
+.product_inner_airpods .airpods_categories ul li {
+  margin-top: 5px;
+}
+.product_inner_tv .tv_categories ul li:hover {
+  text-shadow: 0 1px 2px #adadad;
+}
+.product_inner_mac .mac_categories ul li:hover {
+  text-shadow: 0 1px 2px #adadad;
+}
+.product_inner_ipad .ipad_categories ul li:hover {
+  text-shadow: 0 1px 2px #adadad;
+}
+.product_inner_iphone .iphone_categories ul li:hover {
+  text-shadow: 0 1px 2px #adadad;
+}
+.product_inner_watch .watch_categories ul li:hover {
+  text-shadow: 0 1px 2px #adadad;
+}
+.product_inner_airpods .airpods_categories ul li:hover {
+  text-shadow: 0 1px 2px #adadad;
+}
+.product_inner_tv .tv_categories ul li:hover {
+  text-shadow: 0 1px 2px #adadad;
+}
+
+
+
+
+
+/* 스토어 카테고리 부분 */
+.menu__store .store-category1 {
+  width: 300px; height: 300px;
+  /* outline: 1px dotted red; */
+  float: left;
+  /* font-size: 22px; */
+}
+.menu__store .store-category2 {
+  width: 300px; height: 300px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.menu__store .store-category3 {
+  width: 300px; height: 300px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+
+
+
+/* 제품 카테고리 부분 */
+
+/* 맥부분 */
+.mac_categories .product-mac-category1 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.mac_categories .product-mac-category2 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.mac_categories .product-mac-category3 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+/* 아이패드부분 */
+.ipad_categories .product-ipad-category1 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.ipad_categories .product-ipad-category2 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.ipad_categories .product-ipad-category3 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+/* 아이폰부분 */
+.iphone_categories .product-iphone-category1 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.iphone_categories .product-iphone-category2 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.iphone_categories .product-iphone-category3 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+/* 와치부분 */
+.watch_categories .product-watch-category1 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.watch_categories .product-watch-category2 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.watch_categories .product-watch-category3 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+/* 에어팟 부분 */
+.airpods_categories .product-airpods-category1 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.airpods_categories .product-airpods-category2 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.airpods_categories .product-airpods-category3 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+/* 티비 부분 */
+.tv_categories .product-tv-category1 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.tv_categories .product-tv-category2 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.tv_categories .product-tv-category3 {
+  width: 300px; height: 340px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+
+
+
+
+
+/* 악세서리 카테고리 부분 */
+.menu__accessory .accessory-category1 {
+  width: 300px; height: 300px;
+  /* outline: 1px dotted red; */
+  float: left;
+  /* font-size: 22px; */
+
+}
+.menu__accessory .accessory-category2 {
+  width: 300px; height: 300px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+
+/* 구독 카테고리 부분 */
+.menu__subscribe .subscribe-category1 {
+  width: 300px; height: 300px;
+  /* outline: 1px dotted red; */
+  float: left;
+  /* font-size: 22px; */
+}
+.menu__subscribe .subscribe-category2 {
+  width: 300px; height: 300px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+
+/* 고객지원 카테고리 부분 */
+.menu__support .support-category1 {
+  width: 300px; height: 300px;
+  /* outline: 1px dotted red; */
+  float: left;
+  /* font-size: 22px; */
+}
+.menu__support .support-category2 {
+  width: 300px; height: 300px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
+.menu__support .support-category3 {
+  width: 300px; height: 300px;
+  /* outline: 1px dotted red; */
+  float: left;
+}
